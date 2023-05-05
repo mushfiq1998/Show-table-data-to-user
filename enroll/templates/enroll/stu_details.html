@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> {% block title %}stuinfo{% endblock title %} </title>
+        <style>
+            th, td{
+                border: 1px black solid;
+            }
+        </style>
+    </head>
+<body>
+    <h3>All rows or objects form Student table:</h3> 
+    <h4>{{stu_qs}}</h4>
+
+    {% if stu_qs %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+            {% for stu in stu_qs %}
+                <tr>
+                    <td>{{stu.id}}</td>
+                    <td>{{stu.name}}</td>
+                    <td>{{stu.email}}</td>
+                    <td>{{stu.password}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h4>No data</h4>
+    {% endif %}
+     
+</body>
+</html>
